@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sistema Recomendador</title>
+    <meta name="description" content="Evaluación del sistema recomendador">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div style="display: flex; justify-content: center;">
+        <img src="/Google_Assistant_logo.svg.png" height="75px" width="75px" >
+        <h1 style="margin-left: 10px; text-align: center;">Architecture Assistant</h1>
+    </div>
+    <form style=" margin-top: 2em;">
+        <ol>
+            <li>
+                <p>¿Se cierra sesión cada que se cambia de módulo?</p>
+                <label for="opciones-1">Elige una opción:</label>
+                <select id="opciones-1" name="opciones-1" onchange="checkOption()">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option value="1">Nunca Ocurre</option>
+                    <option value="2">Pocas veces</option>
+                    <option value="3">Regularmente</option>
+                    <option value="4">Casi siempre</option>
+                    <option value="5">Siempre</option>
+                </select>
+            </li>
+            <li>
+                <p>¿Qué tanta sobrecarga de información tiene tu sistema?</p>
+                <label for="opciones-2">Elige una opción:</label>
+                <select id="opciones-2" name="opciones-2" onchange="checkOption()">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option value="1">Ninguna</option>
+                    <option value="2">Poca</option>
+                    <option value="3">Regular</option>
+                    <option value="4">Mucha</option>
+                    <option value="5">Demasiada</option>
+                </select>
+            </li>
+            <li>
+                <p>¿Tu sistema está bien adaptado a todos los dispositivos?</p>
+                <label for="opciones-3">Elige una opción:</label>
+                <select id="opciones-3" name="opciones-3" onchange="checkOption()">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option value="1">No está adaptado a ningún dispositivo</option>
+                    <option value="2">Solo computadora</option>
+                    <option value="3">Algunos dispositivos</option>
+                    <option value="4">Muchos dispositivos</option>
+                    <option value="5">Todos los dispositivos</option>
+                </select>
+            </li>
+            <li>
+                <p>¿El sistema es intuitivo o fácil de usar?</p>
+                <label for="opciones-4">Elige una opción:</label>
+                <select id="opciones-4" name="opciones-4" onchange="checkOption()">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option value="1">Nada intuitivo</option>
+                    <option value="2">Poco intuitivo</option>
+                    <option value="3">Intuitivo</option>
+                    <option value="4">Muy intuitivo</option>
+                </select>
+            </li>
+            <li>
+                <p>¿El sistema responde rápidamente cuando haces clic o seleccionas opciones?</p>
+                <label for="opciones-5">Elige una opción:</label>
+                <select id="opciones-5" name="opciones-5" onchange="checkOption()">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option value="1">Es muy lento</option>
+                    <option value="2">Es lento</option>
+                    <option value="3">Es rápido</option>
+                    <option value="4">Es muy rápido</option>
+                </select>
+            </li>
+            <li>
+                <p>¿Con qué frecuencia encuentras información o funcionalidades duplicadas?</p>
+                <label for="opciones-6">Elige una opción:</label>
+                <select id="opciones-6" name="opciones-6" onchange="checkOption()">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option value="1">Nunca Ocurre</option>
+                    <option value="2">Pocas veces</option>
+                    <option value="3">Regularmente</option>
+                    <option value="4">Casi siempre</option>
+                    <option value="5">Siempre</option>
+                </select>
+            </li>     
+        </ol>
+    </form>
+    <h3>Arquitechture Assistant recomienda:</h3>
+    <div id="recomendaciones"></div>
+    <div style="display: flex; justify-content: center;">
+        <img src="cat-gojo.jpg" alt="Nah, i'd win" width="200px" height="200px">
+    </div>    
+</body>
+</html>
+

@@ -1,0 +1,176 @@
+/* Establece márgenes y rellenos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y color de texto para toda la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 2em auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el logo (imagen) */
+.container img {
+    border-radius: 50%;
+    margin: 2em auto;
+    display: block;  /* Hace que la imagen sea un bloque para poder centrarla */
+}
+
+
+/* Estilo para el título */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilo de los formularios */
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 2em auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las preguntas */
+form ol {
+    list-style:decimal;
+}
+
+form li {
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+form p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Estilo para las etiquetas y los select */
+form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los select */
+form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para los botones */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para las recomendaciones */
+#recomendaciones {
+    width: 100%;
+    max-width: 600px;
+    margin: 2em auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las imágenes (centradas) */
+#recomendaciones img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Estilo para la sección de Gojo */
+h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Media Queries para hacer la página responsive */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container img {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    #recomendaciones {
+        padding: 10px;
+    }
+}
+
+/* Pantallas muy pequeñas (móviles en apaisado o pantallas pequeñas de tabletas) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    form select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+}
