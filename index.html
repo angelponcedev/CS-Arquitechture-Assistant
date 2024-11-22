@@ -11,89 +11,279 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <div style="display: flex; justify-content: center;">
-        <img src="/Google_Assistant_logo.svg.png" height="75px" width="75px" >
+    <div class="header">
+        <img src="/cat-gojo.jpg" height="100px" width="100px">
         <h1 style="margin-left: 10px; text-align: center;">Architecture Assistant</h1>
     </div>
-    <form style=" margin-top: 2em;">
-        <ol>
+    
+    <div class="container">
+        <form id="formContainer">
+            <br>
+            <ol id="cuestionario">
             <li>
-                <p>¿Se cierra sesión cada que se cambia de módulo?</p>
-                <label for="opciones-1">Elige una opción:</label>
-                <select id="opciones-1" name="opciones-1" onchange="checkOption()">
-                    <option value="0">Seleccione una Opcion</option>
-                    <option value="1">Nunca Ocurre</option>
-                    <option value="2">Pocas veces</option>
-                    <option value="3">Regularmente</option>
-                    <option value="4">Casi siempre</option>
-                    <option value="5">Siempre</option>
-                </select>
+                <div class="question-container">
+                    <p>¿Tu sistema cierra sesion cada que se cambia de modulo?</p>
+                    <button onclick="insertRequirement(event)" data-index="1">Mostrar Requisito</button>
+                </div>
+                <div id="requisito1"></div>
+                <fieldset>
+                    <legend>Elige una opción</legend>
+                    <label for="opcion-si-1">
+                        <input type="radio" id="pregunta1-si" name="pregunta1" value="true" required onclick="checkOption()">
+                        Sí
+                    </label>
+                    <label for="opcion-no-1">
+                        <input type="radio" id="pregunta1-no" name="pregunta1" value="false" onclick="checkOption()">
+                        No
+                    </label>
+                </fieldset>
             </li>
             <li>
-                <p>¿Qué tanta sobrecarga de información tiene tu sistema?</p>
-                <label for="opciones-2">Elige una opción:</label>
-                <select id="opciones-2" name="opciones-2" onchange="checkOption()">
-                    <option value="0">Seleccione una Opcion</option>
-                    <option value="1">Ninguna</option>
-                    <option value="2">Poca</option>
-                    <option value="3">Regular</option>
-                    <option value="4">Mucha</option>
-                    <option value="5">Demasiada</option>
-                </select>
+                <p>¿Con que intensidad presenta el problema de cierre de sesion cada que se cambia de modulo?</p>
+                <fieldset>
+                    <legend>Elige una opción</legend>
+                    <label for="opcion-1">
+                        <input type="radio" id="opcion-1" name="pregunta2" value="1" required disabled onclick="checkOption()">
+                        1.- 20% del tiempo
+                    </label>
+                    <label for="opcion-2">
+                        <input type="radio" id="opcion-2" name="pregunta2" value="2" disabled onclick="checkOption()">
+                        2.- 40% del tiempo
+                    </label>
+                    <label for="opcion-3">
+                        <input type="radio" id="opcion-3" name="pregunta2" value="3" disabled onclick="checkOption()">
+                        3.- 60% del tiempo
+                    </label>
+                    <label for="opcion-4">
+                        <input type="radio" id="opcion-4" name="pregunta2" value="4" disabled onclick="checkOption()">
+                        4.- 80% del tiempo
+                    </label>
+                    <label for="opcion-5">
+                        <input type="radio" id="opcion-5" name="pregunta2" value="5" disabled onclick="checkOption()">
+                        5.- 100% del tiempo
+                    </label>
+                </fieldset>
+                <p>Cualquier valor seleccionado con un porcentaje mayor o igual a 60% se considera como un problema y se haran recomendaciones acorde al nivel de gravedad del problema.</p>
             </li>
             <li>
-                <p>¿Tu sistema está bien adaptado a todos los dispositivos?</p>
-                <label for="opciones-3">Elige una opción:</label>
-                <select id="opciones-3" name="opciones-3" onchange="checkOption()">
-                    <option value="0">Seleccione una Opcion</option>
-                    <option value="1">No está adaptado a ningún dispositivo</option>
-                    <option value="2">Solo computadora</option>
-                    <option value="3">Algunos dispositivos</option>
-                    <option value="4">Muchos dispositivos</option>
-                    <option value="5">Todos los dispositivos</option>
-                </select>
+                <div class="question-container">
+                    <p>¿Tu sistema tiene sobrecarga de informacion y opciones en su interfaz?</p>
+                    <button onclick="insertRequirement(event)" data-index="2">Mostrar Requisito</button>
+                </div>
+                <div id="requisito2"></div>
+                <fieldset>
+                    <legend>Elige una opción</legend>
+                    <label for="opcion-si-3">
+                        <input type="radio" id="pregunta3-si" name="pregunta3" value="true" required onclick="checkOption()">
+                        Sí
+                    </label>
+                    <label for="opcion-no-3">
+                        <input type="radio" id="pregunta3-no" name="pregunta3" value="false" onclick="checkOption()">
+                        No
+                    </label>
+                </fieldset>
             </li>
             <li>
-                <p>¿El sistema es intuitivo o fácil de usar?</p>
-                <label for="opciones-4">Elige una opción:</label>
-                <select id="opciones-4" name="opciones-4" onchange="checkOption()">
-                    <option value="0">Seleccione una Opcion</option>
-                    <option value="1">Nada intuitivo</option>
-                    <option value="2">Poco intuitivo</option>
-                    <option value="3">Intuitivo</option>
-                    <option value="4">Muy intuitivo</option>
-                </select>
+                <p>¿Con que intensidad presenta el problema de sobrecarga de informacion y opciones de interfaz en su sistema?</p>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                    <label for="opcion-1">
+                        <input type="radio" name="pregunta4" id="opcion-1" value="1" required disabled onclick="checkOption()">
+                        1.- 20% de las interfaces tienen sobrecarga de informacion y opciones.
+                    </label>
+                    <label for="opcion-2">
+                        <input type="radio" name="pregunta4" id="opcion-2" value="2" disabled onclick="checkOption()">
+                        2.- 40% de las interfaces tienen sobrecarga de informacion y opciones.
+                    </label>
+                    <label for="opcion-3">
+                        <input type="radio" name="pregunta4" id="opcion-3" value="3" disabled onclick="checkOption()">
+                        3.- 60% de las interfaces tienen sobrecarga de informacion y opciones.
+                    </label>
+                    <label for="opcion-4">
+                        <input type="radio" name="pregunta4" id="opcion-4" value="4" disabled onclick="checkOption()">
+                        4.- 80% de las interfaces tienen sobrecarga de informacion y opciones.
+                    </label>
+                    <label for="opcion-5">
+                        <input type="radio" name="pregunta4" id="opcion-5" value="5" disabled onclick="checkOption()">
+                        5.- 100% de las interfaces tienen sobrecarga de informacion y opciones.
+                    </label>
+                </fieldset>
+                <p>Cualquier valor seleccionado con un porcentaje mayor o igual a 60% se considera como un problema y se haran recomendaciones acorde al nivel de gravedad del problema.</p>
             </li>
             <li>
-                <p>¿El sistema responde rápidamente cuando haces clic o seleccionas opciones?</p>
-                <label for="opciones-5">Elige una opción:</label>
-                <select id="opciones-5" name="opciones-5" onchange="checkOption()">
-                    <option value="0">Seleccione una Opcion</option>
-                    <option value="1">Es muy lento</option>
-                    <option value="2">Es lento</option>
-                    <option value="3">Es rápido</option>
-                    <option value="4">Es muy rápido</option>
-                </select>
+                <div class="question-container">
+                    <p>¿Tu sistema se adapta a distintas plataformas?</p>
+                    <button onclick="insertRequirement(event)" data-index="3">Mostrar Requisito</button>
+                </div>
+                <div id="requisito3"></div>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                    <label for="opcion-si-5">
+                        <input type="radio" name="pregunta5" id="pregunta5-si" value="true" onclick="checkOption()">
+                        Si 
+                    </label>
+                    <label for="opcion-no-5">
+                        <input type="radio" name="pregunta5" id="pregunta5-no" value="false" onclick="checkOption()">
+                        No    
+                    </label>
+                </fieldset>
             </li>
             <li>
-                <p>¿Con qué frecuencia encuentras información o funcionalidades duplicadas?</p>
-                <label for="opciones-6">Elige una opción:</label>
-                <select id="opciones-6" name="opciones-6" onchange="checkOption()">
-                    <option value="0">Seleccione una Opcion</option>
-                    <option value="1">Nunca Ocurre</option>
-                    <option value="2">Pocas veces</option>
-                    <option value="3">Regularmente</option>
-                    <option value="4">Casi siempre</option>
-                    <option value="5">Siempre</option>
-                </select>
-            </li>     
+                <p>¿Cual es la adaptabilidad de tu sistema por plataforma?</p>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                    <label for="">
+                        <input type="radio" name="pregunta6" id="opcion-1" value="1" disabled onclick="checkOption()">
+                        1.- Solo esta bien adaptado a Computadoras (25%)
+                    </label>
+                    <label for="">
+                        <input type="radio" name="pregunta6" id="opcion-2" value="2" disabled onclick="checkOption()">
+                        2.- Solo esta bien adaptado a Moviles (50%)
+                    </label>
+                    <label for="">
+                        <input type="radio" name="pregunta6" id="opcion-3" value="3" disabled onclick="checkOption()">
+                        3.- Esta bien adaptado a Computadora y Movil (75%)
+                    </label>
+                    <label for="">
+                        <input type="radio" name="pregunta6" id="opcion-4" value="4" disabled onclick="checkOption()">
+                        4.- Esta bien adaptado para todas las plataformas. (100%)
+                    </label>
+                </fieldset>
+                <p>Cualquier valor seleccionado con un porcentaje menor o igual a 50% se considera como un problema y se haran recomendaciones acorde al nivel de gravedad del problema.</p>
+            </li>
+            <li>
+                <div class="question-container">
+                    <p>¿El sistema es intuitivo o fácil de usar?</p>
+                    <button onclick="insertRequirement(event)" data-index="4">Mostrar Requisito</button>
+                </div>
+                <div id="requisito4"></div>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                    <label for="opcion-si-6">
+                        <input type="radio" name="pregunta7" id="pregunta6-si" value="true" onclick="checkOption()">
+                    Si
+                    </label>
+                    <label for="opcion-no-6">
+                        <input type="radio" name="pregunta7" id="pregunta6-no" value="false" onclick="checkOption()">
+                    No
+                    </label>
+                </fieldset>
+            </li>
+            <li>
+                <p>¿Que tan intuitivo o facil de usar es el sistema?</p>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                <label for="opcion-1">
+                    <input type="radio" name="pregunta8" id="opcion-1" value="1" disabled onclick="checkOption()">
+                    1.- Muy Poco Intuitivo (25%)
+                </label>
+                <label for="opcion-2">
+                    <input type="radio" name="pregunta8" id="opcion-2" value="2" disabled onclick="checkOption()">
+                    2.- Poco Intuitivo (50%)
+                </label>
+                <label for="opcion-3">
+                    <input type="radio" name="pregunta8" id="opcion-3" value="3" disabled onclick="checkOption()">
+                    3.- Intuitivo (75%)
+                </label>
+                <label for="opcion-4">
+                    <input type="radio" name="pregunta8" id="opcion-4" value="4" disabled onclick="checkOption()">
+                    4.- Muy Intuitivo (100%)
+                </label>
+                </fieldset>
+                <p>Cualquier valor seleccionado con un porcentaje menor o igual a 50% se considera como un problema y se haran recomendaciones acorde al nivel de gravedad del problema.</p>
+            </li>
+            <li>
+                <div class="question-container">
+                    <p>¿El sistema es lento en su tiempo de respuesta?</p>
+                    <button onclick="insertRequirement(event)" data-index="5">Mostrar Requisito</button>
+                </div>
+                <div id="requisito5"></div>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                    <label for="opcion-si-6">
+                        <input type="radio" name="pregunta9" id="pregunta6-si" value="true" onclick="checkOption()">
+                    Si
+                    </label>
+                    <label for="opcion-no-6">
+                        <input type="radio" name="pregunta9" id="pregunta6-no" value="false" onclick="checkOption()">
+                    No
+                    </label>
+                </fieldset>
+            </li>
+            <li>
+                <p>¿Que tan lento es el sistema?</p>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                <label for="opcion-1">
+                    <input type="radio" name="pregunta10" id="opcion-1" value="1" disabled onclick="checkOption()">
+                    1.- Muy Lento (25%)
+                </label>
+                <label for="opcion-2">
+                    <input type="radio" name="pregunta10" id="opcion-2" value="2" disabled onclick="checkOption()">
+                    2.- Lento (50%)
+                </label>
+                <label for="opcion-3">
+                    <input type="radio" name="pregunta10" id="opcion-3" value="3" disabled onclick="checkOption()">
+                    3.- Moderado (75%)
+                </label>
+                <label for="opcion-3">
+                    <input type="radio" name="pregunta10" id="opcion-3" value="3" disabled onclick="checkOption()">
+                    3.- Rapido (100%)
+                </label>
+                </fieldset>
+                <p>Cualquier valor seleccionado con un porcentaje menor o igual a 50% se considera como un problema y se haran recomendaciones acorde al nivel de gravedad del problema.</p>
+            </li>
+            <li>
+                <div class="question-container">
+                    <p>¿El sistema tiene funcionalidades duplicadas?</p>
+                    <button onclick="insertRequirement(event)" data-index="6">Mostrar Requisito</button>
+                </div>
+                <div id="requisito6"></div>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                    <label for="opcion-si-6">
+                        <input type="radio" name="pregunta11" id="pregunta6-si" value="true" onclick="checkOption()">
+                    Si
+                    </label>
+                    <label for="opcion-no-6">
+                        <input type="radio" name="pregunta11" id="pregunta6-no" value="false" onclick="checkOption()">
+                    No
+                    </label>
+                </fieldset>
+            </li>
+            <li>
+                <p>¿Que tan frecuentemente te encuentras funciones duplicadas en el sistema?</p>
+                <fieldset>
+                    <legend>Elige una opcion</legend>
+                <label for="opcion-1">
+                    <input type="radio" name="pregunta12" id="opcion-1" value="1" disabled onclick="checkOption()">
+                    1.- Nunca (20%)
+                </label>
+                <label for="opcion-2">
+                    <input type="radio" name="pregunta12" id="opcion-2" value="2" disabled onclick="checkOption()">
+                    2.- Casi Nunca (40%)
+                </label>
+                <label for="opcion-3">
+                    <input type="radio" name="pregunta12" id="opcion-3" value="3" disabled onclick="checkOption()">
+                    3.- Regularmente (60%)
+                </label>
+                <label for="opcion-4">
+                    <input type="radio" name="pregunta12" id="opcion-4" value="4" disabled onclick="checkOption()">
+                    4.- Casi Siempre (80%)
+                </label>
+                <label for="opcion-4">
+                    <input type="radio" name="pregunta12" id="opcion-5" value="5" disabled onclick="checkOption()">
+                    5.- Siempre (100%)
+                </label>
+                </fieldset>
+                <p>Cualquier valor seleccionado con un porcentaje mayor o igual a 60% se considera como un problema y se haran recomendaciones acorde al nivel de gravedad del problema.</p>
+            </li>
         </ol>
     </form>
-    <h3>Arquitechture Assistant recomienda:</h3>
-    <div id="recomendaciones"></div>
-    <div style="display: flex; justify-content: center;">
-        <img src="cat-gojo.jpg" alt="Nah, i'd win" width="200px" height="200px">
-    </div>    
+    <div id="recomendaciones-container">
+        <h3>Arquitechture Assistant recomienda:</h3>
+        <div id="recomendaciones"></div>
+    </div>
+</div>
 </body>
 </html>
-

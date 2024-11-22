@@ -12,84 +12,82 @@ body {
     color: #333;
     line-height: 1.6;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Contenedor principal */
-.container {
+/* Encabezado */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 600px;
-    margin: 2em auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-/* Estilo para el logo (imagen) */
-.container img {
+.header img {
     border-radius: 50%;
-    margin: 2em auto;
-    display: block;  /* Hace que la imagen sea un bloque para poder centrarla */
 }
 
-
-/* Estilo para el título */
 h1 {
     font-size: 2rem;
     color: #333;
     font-weight: bold;
     text-align: center;
+    margin-left: 10px;
 }
 
-/* Estilo de los formularios */
-form {
+/* Contenedor principal con diseño de dos columnas */
+.container {
+    display: flex;
     width: 100%;
-    max-width: 600px;
-    margin: 2em auto;
+    gap: 20px;
+}
+
+/* Formulario */
+#formContainer {
+    flex: 0 0 50%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para las preguntas */
-form ol {
-    list-style:decimal;
+#formContainer ol {
+    list-style: decimal;
 }
 
-form li {
+#formContainer li {
     margin-bottom: 15px;
     margin-left: 15px;
 }
 
-form p {
+#formContainer p {
     font-size: 1rem;
     margin-bottom: 8px;
     font-weight: 500;
 }
 
-/* Estilo para las etiquetas y los select */
-form label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Estilo para los select */
-form select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* Contenedor de recomendaciones */
+#recomendaciones-container {
+    flex: 0 0 50%;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para los botones */
 button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
+    width: 15%;
+    padding: 5px;
+    margin-right: 3%;
+    font-size: 0.8rem;
     background-color: #28a745;
     color: white;
     border: none;
@@ -102,60 +100,47 @@ button:hover {
     background-color: #218838;
 }
 
-/* Estilo para las recomendaciones */
-#recomendaciones {
-    width: 100%;
-    max-width: 600px;
-    margin: 2em auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Estilo para las etiquetas */
+form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* Estilo para las imágenes (centradas) */
-#recomendaciones img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 8px;
-    margin-top: 20px;
+/* Question Container */
+.question-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Estilo para la sección de Gojo */
-h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-top: 20px;
-    text-align: center;
+.question-container p {
+    margin-right: 1rem;
 }
 
-/* Media Queries para hacer la página responsive */
-
-/* Pantallas pequeñas (móviles) */
+/* Media Queries para responsive design */
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    #formContainer, 
+    #recomendaciones-container {
+        flex: 0 0 100%;
+    }
+    
+    #recomendaciones-container {
+        position: static;
+        max-height: none;
+    }
+    
     body {
         padding: 10px;
     }
 
-    .container img {
-        width: 60px;
-        height: 60px;
-    }
-
     h1 {
         font-size: 1.5rem;
-    }
-
-    form {
-        padding: 15px;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    #recomendaciones {
-        padding: 10px;
     }
 }
 
@@ -163,14 +148,5 @@ h3 {
 @media (max-width: 480px) {
     h1 {
         font-size: 1.3rem;
-    }
-
-    form select {
-        font-size: 0.9rem;
-        padding: 8px;
-    }
-
-    h3 {
-        font-size: 1rem;
     }
 }
